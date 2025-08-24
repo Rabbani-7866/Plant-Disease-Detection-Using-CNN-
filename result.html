@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Prediction Result</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: url('https://t3.ftcdn.net/jpg/15/10/92/68/360_F_1510926872_8cge2RS0ZyNUxpuUwPWQkTW6wC3kfD6z.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+    }
+    .panel {
+      width: 520px;
+      background: rgba(255, 255, 255, 0.92); /* semi-transparent for readability */
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(16,24,40,0.25);
+      backdrop-filter: blur(6px); /* subtle blur effect */
+    }
+    header { color: #1f7a2b; font-size: 1.2rem; font-weight:700; margin-bottom: 10px; }
+    .row { display:flex; gap: 20px; align-items:flex-start; }
+    .img-wrap { flex: 0 0 220px; }
+    .img-wrap img { width: 220px; height: 220px; object-fit:contain; border-radius:8px; border:1px solid #eef7ee; }
+    .meta { flex:1; }
+    .label { font-size:1.15rem; font-weight:700; margin-bottom:6px; }
+    .confidence { color:#555; margin-bottom:10px; }
+    .suggestion { background:#f6fff7; padding:12px; border-radius:8px; border:1px solid #e8f7ea; color:#153; }
+    .disclaimer { font-size:0.85rem; color:#666; margin-top:10px; }
+    .actions { margin-top:14px; }
+    a.btn { display:inline-block; padding:10px 14px; border-radius:8px; background:#2e7d32; color:white; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <header>🌱 Analysis Result</header>
+    <div class="row">
+      <div class="img-wrap">
+        <img src="{{ image_url }}" alt="Uploaded image">
+      </div>
+      <div class="meta">
+        <div class="label">Predicted Disease: <span style="color:#0b5f1e;">{{ prediction }}</span></div>
+        <div class="confidence">Confidence: {{ confidence }}%</div>
+        <div class="suggestion"><strong>Suggested Action:</strong>
+          <p>{{ suggestion }}</p>
+        </div>
+        <div class="actions"><a class="btn" href="/">🔄 Analyze Another Image</a></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
